@@ -136,11 +136,6 @@ class Client
 		}
 
 		$body = \Nette\Utils\Json::decode($response->getBody(), \Nette\Utils\Json::FORCE_ARRAY);
-		$response = new \Sellastica\PhpSdk\Response($body['meta_data']);
-		if (isset($body['data'])) {
-			$response->setData($body['data']);
-		}
-
-		return $response;
+		return new \Sellastica\PhpSdk\Response($body['meta_data'], $body['data'] ?? []);
 	}
 }

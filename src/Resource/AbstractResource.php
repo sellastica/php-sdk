@@ -97,7 +97,7 @@ abstract class AbstractResource
 	public function count(array $options = []): int
 	{
 		$response = $this->client->get($this->getEndpoint() . '/count', $options);
-		return $response->getData()['count'];
+		return $response->data['count'];
 	}
 
 	/**
